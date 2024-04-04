@@ -9,6 +9,7 @@ if (!pokeContainer || !filterInput) {
   throw new Error("Issue with selector");
 }
 
+
 const RenderPokeDeck = () => {
   let pokeCards = "";
   pokemonArray.forEach((pokemon) => {
@@ -42,6 +43,7 @@ const handleInputValue = (event: Event) => {
     RenderPokeDeck();
   }
 };
+
 
 filterInput.addEventListener("input", handleInputValue);
 

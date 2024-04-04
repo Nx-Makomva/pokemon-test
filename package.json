@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Nx-Makomva.github.io/yuma-packages",
+  "homepage": "https://Nx-Makomva.github.io/pokemon-test",
   "author": "Nic Makomva",
   "scripts": {
     "dev": "vite",
@@ -12,8 +12,9 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "sass": "^1.64.2",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "sass": "^1.64.2"
+    "vite": "^4.4.5"
   }
 }
