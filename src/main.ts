@@ -3,7 +3,7 @@ import pokemonArray from "./data/pokemon";
 import { Pokemon } from "./data/types";
 
 const pokeContainer = document.querySelector(".card-container");
-const filterInput = document.querySelector<HTMLInputElement>(".search-box");
+const filterInput = document.querySelector<HTMLInputElement>("#search-box");
 
 if (!pokeContainer || !filterInput) {
   throw new Error("Issue with selector");
