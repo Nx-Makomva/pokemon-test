@@ -12,13 +12,14 @@ if (!pokeContainer || !filterInput) {
 const RenderPokeDeck = () => {
   let pokeCards = "";
   pokemonArray.forEach((pokemon) => {
-    pokeCards += `<div class='card'>
-      <img class='card__image' src='${pokemon.sprite}'></img>
-      <h1 class='card__heading'>${pokemon.name}</heading>
-      <p class='card__content'>${pokemon.types}</content>
-      <p class='card__text'>${pokemon.text}</text>
-     </div>
-     `;
+    pokeCards += 
+    `<div class="card">
+      <img class="card__image" src='${pokemon.sprite}'></img>
+      <div class="card__content">${pokemon.types}
+        <h1 class="card__heading">${pokemon.name}</h1>
+        <p class="card__text">${pokemon.name} (#${pokemon.id}) is a ${pokemon.types} type pokemon </text>
+      </div>
+     </div>`;
   });
 
   pokeContainer.innerHTML = pokeCards;
@@ -46,13 +47,13 @@ const renderFilteredPokemon = (filteredPokemon: Pokemon[]) => {
 
   filteredPokemon.forEach((pokemon) => {
    const filteredPokeCard =
-     `<div class='card'>
-        <img class='card__image' src='${pokemon.sprite}'></img>
-        <h1 class='card__heading'>${pokemon.name}</heading>
-        <p class='card__content'>${pokemon.types}</content>
-        <p class='card__text'>${pokemon.text}</text>
-      </div>
-      `
+     `<div class="card">
+        <img class="card__image" src='${pokemon.sprite}'></img>
+        <div class="card__content">${pokemon.types}
+          <h1 class="card__heading">${pokemon.name}</h1>
+          <p class="card__text">hello, what we saying</text>
+        </div>
+      </div>`
        pokeContainer.innerHTML += filteredPokeCard;
   }); 
   
