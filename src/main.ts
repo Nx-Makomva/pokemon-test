@@ -12,12 +12,12 @@ if (!pokeContainer || !filterInput) {
 const RenderPokeDeck = () => {
   let pokeCards = "";
   pokemonArray.forEach((pokemon) => {
-    pokeCards += 
-    `<div class="card">
+    pokeCards += `<div class="card">
       <img class="card__image" src='${pokemon.sprite}'></img>
-      <div class="card__content">${pokemon.types}
+      <div class="card__content">${pokemon.types.join(", ")}
         <h1 class="card__heading">${pokemon.name}</h1>
-        <p class="card__text">${pokemon.name} (#${pokemon.id}) is a ${pokemon.types} type pokemon </text>
+        <p class="card__text">${pokemon.name} (#${pokemon.id}) 
+          is a ${pokemon.types.join(", ")} type pokemon </text>
       </div>
      </div>`;
   });
@@ -28,35 +28,35 @@ const RenderPokeDeck = () => {
 RenderPokeDeck();
 
 const handleInputValue = (event: Event) => {
-  const searchTerm: string = (event.target as HTMLInputElement).value.toLowerCase();
+  const searchTerm: string = (
+    event.target as HTMLInputElement
+  ).value.toLowerCase();
   if (searchTerm !== "") {
-    const filteredResults = pokemonArray.filter((pokemon) => {
-      return pokemon.name.includes(searchTerm) || pokemon.types.includes(searchTerm);
-    })
-    renderFilteredPokemon(filteredResults);
-    
+    const filteredPokeCard = pokemonArray.filter((pokemon) => {
+      return (
+        pokemon.name.includes(searchTerm) || pokemon.types.includes(searchTerm)
+      );
+    });
+    renderFilteredPokemon(filteredPokeCard);
   } else {
     RenderPokeDeck();
   }
-}
+};
 
-filterInput.addEventListener('input', handleInputValue);
+filterInput.addEventListener("input", handleInputValue);
 
 const renderFilteredPokemon = (filteredPokemon: Pokemon[]) => {
   pokeContainer.innerHTML = "";
 
   filteredPokemon.forEach((pokemon) => {
-   const filteredPokeCard =
-     `<div class="card">
-        <img class="card__image" src='${pokemon.sprite}'></img>
-        <div class="card__content">${pokemon.types}
-          <h1 class="card__heading">${pokemon.name}</h1>
-          <p class="card__text">hello, what we saying</text>
-        </div>
-      </div>`
-       pokeContainer.innerHTML += filteredPokeCard;
-  }); 
-  
-}
-
-
+    const filteredPokeCard = `<div class="card">
+    <img class="card__image" src='${pokemon.sprite}'></img>
+    <div class="card__content">${pokemon.types.join(", ")}
+      <h1 class="card__heading">${pokemon.name}</h1>
+      <p class="card__text">${pokemon.name} (#${pokemon.id}) 
+        is a ${pokemon.types.join(", ")} type pokemon </text>
+    </div>
+   </div>`;
+    pokeContainer.innerHTML += filteredPokeCard;
+  });
+};
