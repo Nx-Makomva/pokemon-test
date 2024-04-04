@@ -26,6 +26,36 @@ const RenderPokeDeck = () => {
 
 RenderPokeDeck();
 
+const handleInputValue = (event: Event) => {
+  const searchTerm: string = (event.target as HTMLInputElement).value.toLowerCase();
+  if (searchTerm !== "") {
+    const filteredResults = pokemonArray.filter((pokemon) => {
+      return pokemon.name.includes(searchTerm) || pokemon.types.includes(searchTerm);
+    })
+    renderFilteredPokemon(filteredResults);
+    
+  } else {
+    RenderPokeDeck();
+  }
+}
 
+filterInput.addEventListener('input', handleInputValue);
+
+const renderFilteredPokemon = (filteredPokemon: Pokemon[]) => {
+  pokeContainer.innerHTML = "";
+
+  filteredPokemon.forEach((pokemon) => {
+   const filteredPokeCard =
+     `<div class='card'>
+        <img class='card__image' src='${pokemon.sprite}'></img>
+        <h1 class='card__heading'>${pokemon.name}</heading>
+        <p class='card__content'>${pokemon.types}</content>
+        <p class='card__text'>${pokemon.text}</text>
+      </div>
+      `
+       pokeContainer.innerHTML += filteredPokeCard;
+  }); 
+  
+}
 
 
