@@ -12,4 +12,4 @@
       <p class="card__text">${e.name} (#${e.id}) 
         is a ${e.types.join(", ")} type pokemon </p>
     </div>
-   </div>`;i.innerHTML+=p})},u=r=>{const e=r.target.value.toLowerCase();if(e!==""){const p=a.filter(o=>o.name.includes(e)||o.types.includes(e));g(p)}else c()};m.addEventListener("input",u);
+   </div>`;i.innerHTML+=p,console.log("hi")})},u=r=>{const e=r.target.value.toLowerCase();if(e!==""){const p=a.filter(o=>o.name.includes(e)||o.types.includes(e));g(p)}else c()};m.addEventListener("input",u);
